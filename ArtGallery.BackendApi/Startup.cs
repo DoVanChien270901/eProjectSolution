@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ArtGallery.Data.EF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using ArtGallery.Data.Entities;
+using ArtGallary.Application.System.Admin;
 
 namespace ArtGallery.BackendApi
 {
@@ -25,6 +30,9 @@ namespace ArtGallery.BackendApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ArtGalleryDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("ArtGallaryShop")));
+            //DI
+            services.AddTransient<ICategoryServices, CategoryServicesImp>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
