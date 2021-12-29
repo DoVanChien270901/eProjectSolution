@@ -31,16 +31,23 @@ namespace ArtGallery.Application.System.Users
             {
                 return null;
             }
-            ProfileUser profile = _db.ProfileUsers.SingleOrDefault(c=>c.UserId == user.Name);
+            ProfileUser profile = _db.ProfileUsers.SingleOrDefault(c=>c.AccountId == user.Name);
+            string role;
+            if (user.RoleId==1)
+            {
+                role = "Admin";
+            }
+            else
+            {
+                role = "User";
+            }
             //Discription token
             var clearms = new[]
             {
                     new Claim(ClaimTypes.Name, profile.FullName),
                     new Claim(ClaimTypes.Email, profile.Email),
                     new Claim(ClaimTypes.MobilePhone, profile.PhoneNumber.ToString()),
-                    new Claim(ClaimTypes.Role, profile.FullName),
-                    //role?
-
+                    new Claim(ClaimTypes.Role, role),
                     new Claim("TokenId", Guid.NewGuid().ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));// Minimun size of key(KeySize) = 126bits(16byte)

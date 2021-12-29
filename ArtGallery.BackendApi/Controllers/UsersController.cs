@@ -24,10 +24,15 @@ namespace ArtGallery.BackendApi.Controllers
         public async Task<ResponseApi> Authenticate(LoginRequest request)
         {
             var resultToken = await _userService.Authencate(request);
-            if (string.IsNullOrEmpty(resultToken)) return null;
+            if (string.IsNullOrEmpty(resultToken))
+                return new ResponseApi
+                {
+                    Success = false,
+                    Message = "User name or password incorrect!!!"
+                };
             return new ResponseApi
             {
-                Message = "",
+                Message = "Login success",
                 Success = true,
                 Data = resultToken
             };

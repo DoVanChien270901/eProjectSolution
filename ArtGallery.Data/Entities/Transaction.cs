@@ -11,7 +11,7 @@ namespace ArtGallery.Data.Entities
         public int Id { get; set; }
         public DateTime TransactionDate { get; set; }
         public decimal Amount { get; set; }
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string AccountId { get; set; }
+        public Account Account { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace ArtGallery.Data.Configurations
             builder.Property(c => c.Id).UseIdentityColumn();
             builder.Property(c => c.Content).HasMaxLength(150);
             builder.Property(c => c.Status).HasMaxLength(10);
-            builder.HasOne(c => c.User).WithMany(c => c.FeedBacks).HasForeignKey(c => c.UserId);
+            builder.HasOne(c => c.Account).WithMany(c => c.FeedBacks).HasForeignKey(c => c.AccountId);
         }
     }
 }

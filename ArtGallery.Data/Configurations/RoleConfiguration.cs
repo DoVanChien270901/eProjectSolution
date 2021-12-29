@@ -16,7 +16,7 @@ namespace ArtGallery.Data.Configurations
             builder.ToTable("Roles");
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).UseIdentityColumn();
-            builder.Property(c => c.Position).HasMaxLength(50);
+            builder.Property(c => c.Position).HasColumnType("varchar").HasMaxLength(50);
         }
     }
 }

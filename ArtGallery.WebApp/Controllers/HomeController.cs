@@ -19,7 +19,7 @@ namespace ArtGallery.WebApp.Controllers
         {
             _logger = logger;
         }
-        [Authorize(Roles ="DoVanChien")]
+        [Authorize(Roles ="User")]
         public IActionResult Home()
         {
             var user = User.Claims.ToList();

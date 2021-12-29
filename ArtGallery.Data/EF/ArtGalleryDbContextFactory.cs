@@ -18,7 +18,7 @@ namespace ArtGallery.Data.EF
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json").Build();
 
-            var connectionString = configuration.GetConnectionString("ArtGallaryShop");
+            var connectionString = configuration.GetConnectionString("ArtGalleryShop");
 
             var optionBuilder = new DbContextOptionsBuilder<ArtGalleryDbContext>();
             optionBuilder.UseSqlServer(connectionString);

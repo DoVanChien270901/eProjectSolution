@@ -37,11 +37,11 @@ namespace ArtGallery.WebApp.Controllers
             if (!ModelState.IsValid) return View();
             var json = JsonConvert.SerializeObject(loginRequest);
             var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync(url, httpContent).Result;
-            if (result.IsSuccessStatusCode)
+            ResponseApi result = JsonConvert.DeserializeObject<ResponseApi>(await httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStringAsync());
+            if (result.Success)
             {
-                var token = JsonConvert.DeserializeObject<ResponseApi>(await result.Content.ReadAsStringAsync());
-                var userPrincipal = _function.ValtdateToken(token.Data.ToString());
+                var token = result.Data.ToString();
+                var userPrincipal = _function.ValtdateToken(token);
                 var authProperties = new AuthenticationProperties
                 {
                     ExpiresUtc = DateTimeOffset.UtcNow.AddSeconds(120),
@@ -54,6 +54,7 @@ namespace ArtGallery.WebApp.Controllers
                     );
                 return RedirectToAction("Home", "Home");
             }
+            ModelState.AddModelError("loginMessage", result.Message);
             return View();
         }
         [Authorize]

@@ -12,5 +12,10 @@ namespace ArtGallery.Data.Entities
         public string Password { get; set; }
         public int RoleId { get; set; }
         public Role Role { get; set; }
+        public ProfileUser ProfileUser { get; set; }
+        public List<Cart> Carts { get; set; }
+        public List<FeedBack> FeedBacks { get; set; }
+        public List<Transaction> Transactions { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

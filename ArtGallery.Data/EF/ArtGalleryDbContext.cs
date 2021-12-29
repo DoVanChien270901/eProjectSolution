@@ -21,7 +21,6 @@ namespace ArtGallery.Data.EF
             base.OnModelCreating(modelbuilder);
             //configure using Fluent API
             modelbuilder.ApplyConfiguration(new AccountConfiguration());
-            modelbuilder.ApplyConfiguration(new AdminConfiguration());
             modelbuilder.ApplyConfiguration(new AmountInAuctionConfiguration());
             modelbuilder.ApplyConfiguration(new AuctionConfiguration());
             modelbuilder.ApplyConfiguration(new CartConfiguration());
@@ -37,10 +36,7 @@ namespace ArtGallery.Data.EF
             modelbuilder.ApplyConfiguration(new ProfileUserConfiguration());
             modelbuilder.ApplyConfiguration(new RoleConfiguration());
             modelbuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelbuilder.ApplyConfiguration(new UserConfiguration());
-
         }
-        public DbSet<Admin> Admins { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AmountAuction> AmountAuctions { get; set; }
         public DbSet<Auction> Auctions { get; set; }
@@ -57,6 +53,5 @@ namespace ArtGallery.Data.EF
         public DbSet<ProfileUser> ProfileUsers { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<User> User { get; set; }
     }
 }
