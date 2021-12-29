@@ -20,6 +20,7 @@ namespace ArtGallery.Data.EF
         {
             base.OnModelCreating(modelbuilder);
             //configure using Fluent API
+            modelbuilder.ApplyConfiguration(new AccountConfiguration());
             modelbuilder.ApplyConfiguration(new AdminConfiguration());
             modelbuilder.ApplyConfiguration(new AmountInAuctionConfiguration());
             modelbuilder.ApplyConfiguration(new AuctionConfiguration());
@@ -40,6 +41,7 @@ namespace ArtGallery.Data.EF
 
         }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<AmountAuction> AmountAuctions { get; set; }
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<Cart> Carts { get; set; }

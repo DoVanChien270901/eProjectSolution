@@ -7,7 +7,11 @@
   <ItemGroup>
     <Folder Include="Catalog\" />
     <Folder Include="System\Admin\" />
-    <Folder Include="System\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGallery.Data\ArtGallery.Data.csproj" />
+    <ProjectReference Include="..\ArtGallery.ViewModel\ArtGallery.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>
