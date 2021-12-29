@@ -34,7 +34,6 @@ namespace ArtGallery.Data.EF
 
             modelbuilder.ApplyConfiguration(new ProductInCartConfiguration());
             modelbuilder.ApplyConfiguration(new ProfileUserConfiguration());
-            modelbuilder.ApplyConfiguration(new RoleConfiguration());
             modelbuilder.ApplyConfiguration(new TransactionConfiguration());
         }
         public DbSet<Account> Accounts { get; set; }
@@ -51,7 +50,6 @@ namespace ArtGallery.Data.EF
 
         public DbSet<ProductInCart> ProductInCarts { get; set; }
         public DbSet<ProfileUser> ProfileUsers { get; set; }
-        public DbSet<Role> Role { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
     }
 }

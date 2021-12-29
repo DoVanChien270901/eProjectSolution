@@ -32,14 +32,9 @@ namespace ArtGallery.Application.System.Users
                 return null;
             }
             ProfileUser profile = _db.ProfileUsers.SingleOrDefault(c=>c.AccountId == user.Name);
-            string role;
-            if (user.RoleId==1)
+            if (user.Roles==null)
             {
-                role = "Admin";
-            }
-            else
-            {
-                role = "User";
+                user.Roles = Data.Enum.Roleposition.User;
             }
             //Discription token
             var clearms = new[]
@@ -47,7 +42,7 @@ namespace ArtGallery.Application.System.Users
                     new Claim(ClaimTypes.Name, profile.FullName),
                     new Claim(ClaimTypes.Email, profile.Email),
                     new Claim(ClaimTypes.MobilePhone, profile.PhoneNumber.ToString()),
-                    new Claim(ClaimTypes.Role, role),
+                    new Claim(ClaimTypes.Role, user.Roles.ToString()),
                     new Claim("TokenId", Guid.NewGuid().ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));// Minimun size of key(KeySize) = 126bits(16byte)
