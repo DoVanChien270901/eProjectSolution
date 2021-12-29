@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Catalog\" />
+    <Folder Include="System\Admin\" />
     <Folder Include="System\Users\" />
   </ItemGroup>
 
