@@ -1,6 +1,5 @@
 ﻿using ArtGallary.Application.System.Admin;
 using ArtGallery.Data.Entities;
-using ArtGallery.ViewModel.System.Admin;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,10 +26,9 @@ namespace ArtGallery.BackendApi.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> InsertCategory(string name)
+        public async Task<bool> InsertCategory(Category cate)
         {
-            Category category = new Category { Name = name };
-            return await categoryServices.InsertCategory(category);
+            return await categoryServices.InsertCategory(cate);
         }
 
         [HttpGet]
@@ -49,6 +47,12 @@ namespace ArtGallery.BackendApi.Controllers
         public async Task<Category> GetCategory(int cateid)
         {
             return await categoryServices.GetCategory(cateid);
+        }
+
+        [HttpPut]
+        public async Task<bool> UpdateCategory(Category cate)
+        {
+            return await categoryServices.UpdateCategory(cate);
         }
     }
 }

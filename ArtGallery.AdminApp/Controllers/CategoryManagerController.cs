@@ -1,5 +1,4 @@
 ﻿using ArtGallery.Data.Entities;
-using ArtGallery.ViewModel.System.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -22,12 +21,13 @@ namespace ArtGallery.AdminApp.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public IActionResult Create(string name)
-        //{
-        //    var model = httpClient.PostAsync(url + name).Result;
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public IActionResult Create(string name)
+        {
+            Category cate = new Category { Name = name };
+            var model = httpClient.PostAsJsonAsync(url , cate).Result;
+            return RedirectToAction("Index");
+        }
 
         public IActionResult Delete(int id)
         {
@@ -48,6 +48,13 @@ namespace ArtGallery.AdminApp.Controllers
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(Category cate)
+        {
+            var model = httpClient.PutAsJsonAsync(url, cate).Result;
+            return RedirectToAction("Index");
         }
     }
 }

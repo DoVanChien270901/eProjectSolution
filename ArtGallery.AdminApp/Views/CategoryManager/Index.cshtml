@@ -29,7 +29,7 @@
                 <div class="col-sm-4">
                     <form asp-action="Create" asp-controller="CategoryManager" method="post">
                         <h5>Category Name</h5>
-                        <input class="form-control form-control-lg" type="text" id="name" name="name" placeholder="Large Input">
+                        <input class="form-control form-control-lg" type="text" name="name" placeholder="Large Input">
                         <br />
                         <input type="submit" value="Create" class="btn btn-success rounded-pill" />
                     </form>
@@ -49,6 +49,7 @@
                                 <th>@Html.DisplayNameFor(c => c.Id)</th>
                                 <th>@Html.DisplayNameFor(c => c.Name)</th>
                                 <th>Action</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +59,16 @@
                                     <td class="text-bold-500">@item.Id</td>
                                     <td>@item.Name</td>
                                     <td>
-                                        @Html.ActionLink("Update", "Update", "CategoryManager", new { id = item.Id }, new { @class = "btn btn-success" })
                                         @Html.ActionLink("Delete", "Delete", "CategoryManager", new { id = item.Id }, new { @class = "btn btn-danger" })
+                                        <a class="btn btn-success" onClick="$('#@item.Id').toggle(1);">Update</a>
+                                    </td>
+                                    <td>
+                                        <form id="@item.Id" style="display:none;" asp-action="Update" asp-controller="CategoryManager" method="post">
+                                            <input type="text" placeholder="@item.Name" name="name" />
+                                            <span asp-validation-for="@item.Name"></span>
+                                            <input type="hidden" name="id" value="@item.Id"/>
+                                            <input type="submit" class="btn btn-success" />
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -71,3 +80,4 @@
         </div>
     </section>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

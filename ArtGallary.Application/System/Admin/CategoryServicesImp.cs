@@ -1,6 +1,5 @@
 ﻿using ArtGallery.Data.EF;
 using ArtGallery.Data.Entities;
-using ArtGallery.ViewModel.System.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +56,7 @@ namespace ArtGallary.Application.System.Admin
             return context.Categories.Where(c=>c.Name.Contains(catename));
         }
 
-        public async Task<bool> UpdateCategory(CategoryRequest cateid)
+        public async Task<bool> UpdateCategory(Category cateid)
         {
             var cate = context.Categories.SingleOrDefault(c=>c.Id.Equals(cateid.Id));
             if (cate != null)
