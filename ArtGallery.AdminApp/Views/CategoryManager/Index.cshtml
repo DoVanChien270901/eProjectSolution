@@ -1,5 +1,5 @@
-﻿@using ArtGallery.Data.Entities
-@model IEnumerable<Category>
+﻿@using ArtGallery.ViewModel.System.Admin;
+@model CategoryModelView
 @{
     ViewData["Title"] = "Category List";
 }
@@ -23,37 +23,47 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Insert Category
-            </div>
-            <div class="card-body">
-                <div class="col-sm-4">
-                    <form asp-action="Create" asp-controller="CategoryManager" method="post">
-                        <h5>Category Name</h5>
-                        <input class="form-control form-control-lg" type="text" name="name" placeholder="Large Input">
-                        <br />
-                        <input type="submit" value="Create" class="btn btn-success rounded-pill" />
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
                 Category List
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-3">
+                            <div class="dataTables_length" id="table1_length">
+                                <form asp-action="Create" asp-controller="CategoryManager" method="post">
+                                    <h6>Category Name</h6>
+                                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Large Input">
+                                    <br />
+                                    <input type="submit" value="Create" class="btn btn-success rounded-pill" />
+                                    <span asp-validation-for="Name"></span>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3"></div>
+
+                        <div class="col-sm-12 col-md-3">
+                            <form asp-action="Index" asp-controller="CategoryManager" method="post">
+                                <h6>Search by Name</h6>
+                                <input class="form-control form-control-lg" type="text" name="name" placeholder="Large Input">
+
+                                <br />
+                                <input type="submit" value="Search" class="btn btn-success rounded-pill" />
+                                <span asp-validation-for="Name"></span>
+                            </form>
+                        </div>
+                        <div class="col-sm-12 col-md-3"></div>
+                    </div>
                     <table class="table table-light mb-0">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(c => c.Id)</th>
-                                <th>@Html.DisplayNameFor(c => c.Name)</th>
-                                <th>Action</th>
-                                <th></th>
+                                <th class="col-3">@Html.DisplayNameFor(c => c.Id)</th>
+                                <th class="col-3">@Html.DisplayNameFor(c => c.Name)</th>
+                                <th class="col-3">Action</th>
+                                <th class="col-3"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.Categories)
                             {
                                 <tr>
                                     <td class="text-bold-500">@item.Id</td>
@@ -66,7 +76,7 @@
                                         <form id="@item.Id" style="display:none;" asp-action="Update" asp-controller="CategoryManager" method="post">
                                             <input type="text" placeholder="@item.Name" name="name" />
                                             <span asp-validation-for="@item.Name"></span>
-                                            <input type="hidden" name="id" value="@item.Id"/>
+                                            <input type="hidden" name="id" value="@item.Id" />
                                             <input type="submit" class="btn btn-success" />
                                         </form>
                                     </td>
@@ -81,3 +91,8 @@
     </section>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script src="assets/js/mazer.js"></script>
