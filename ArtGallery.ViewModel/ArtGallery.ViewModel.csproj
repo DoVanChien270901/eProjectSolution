@@ -10,4 +10,12 @@
     <Folder Include="System\Users\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGallery.Data\ArtGallery.Data.csproj" />
+  </ItemGroup>
+
 </Project>
