@@ -1,6 +1,5 @@
 ﻿using ArtGallary.Application.System.Admin;
 using ArtGallery.Data.Entities;
-using ArtGallery.ViewModel.System.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

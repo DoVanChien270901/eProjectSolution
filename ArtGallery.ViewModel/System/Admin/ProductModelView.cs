@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtGallary.Application.System.Admin
+namespace ArtGallery.ViewModel.System.Admin
 {
-    public interface IAdminServices
+    public class ProductModelView
     {
-        
+
     }
 }

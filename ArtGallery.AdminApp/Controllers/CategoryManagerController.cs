@@ -1,4 +1,5 @@
 ﻿using ArtGallery.Data.Entities;
+using ArtGallery.ViewModel.System.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -15,17 +16,27 @@ namespace ArtGallery.AdminApp.Controllers
         private readonly string url = "http://localhost:4086/api/CategoriesManager/";
         private readonly HttpClient httpClient = new HttpClient();
 
+        [HttpGet]
         public IActionResult Index()
         {
             var model = JsonConvert.DeserializeObject<IEnumerable<Category>>(httpClient.GetStringAsync(url).Result);
-            return View(model);
+            CategoryModelView categoryModelView = new CategoryModelView{ Categories = model };
+            return View(categoryModelView);
+        }
+
+        [HttpPost]
+        public IActionResult Index(string name)
+        {
+                var model = JsonConvert.DeserializeObject<IEnumerable<Category>>(httpClient.GetStringAsync(url + name).Result);
+                CategoryModelView categoryModelView = new CategoryModelView { Categories = model };
+                return View(categoryModelView);
         }
 
         [HttpPost]
         public IActionResult Create(string name)
         {
             Category cate = new Category { Name = name };
-            var model = httpClient.PostAsJsonAsync(url , cate).Result;
+            var model = httpClient.PostAsJsonAsync(url, cate).Result;
             return RedirectToAction("Index");
         }
 
