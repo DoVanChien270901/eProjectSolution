@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArtGallary.Application\ArtGallary.Application.csproj" />
+    <ProjectReference Include="..\ArtGallary.Application\ArtGallery.Application.csproj" />
     <ProjectReference Include="..\ArtGallery.Data\ArtGallery.Data.csproj" />
   </ItemGroup>
 
