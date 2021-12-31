@@ -10,19 +10,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solut
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Infrastructure", "1.Infrastructure", "{C10AA711-8C36-4083-B585-36E22A658859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.ViewModel", "ArtGallery.ViewModel\ArtGallery.ViewModel.csproj", "{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{25D28655-AA2B-4E14-A8D1-83C2A383852C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.Application", "ArtGallery.Application\ArtGallery.Application.csproj", "{E7AC21A4-88B4-4180-8148-41A8862AC5E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Host", "3.Host", "{7228CE13-D197-45D4-AD2D-59B0C9E095E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.BackendApi", "ArtGallery.BackendApi\ArtGallery.BackendApi.csproj", "{50DF3C83-E071-436C-9161-9E2B3B7094C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtGallery.BackendApi", "ArtGallery.BackendApi\ArtGallery.BackendApi.csproj", "{50DF3C83-E071-436C-9161-9E2B3B7094C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.WebApp", "ArtGallery.WebApp\ArtGallery.WebApp.csproj", "{EE6CD47A-C9FF-4BE7-9F01-9CE268596E69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtGallery.WebApp", "ArtGallery.WebApp\ArtGallery.WebApp.csproj", "{EE6CD47A-C9FF-4BE7-9F01-9CE268596E69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.Data", "ArtGallery.Data\ArtGallery.Data.csproj", "{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtGallery.Data", "ArtGallery.Data\ArtGallery.Data.csproj", "{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtGallery.ViewModel", "ArtGallery.ViewModel\ArtGallery.ViewModel.csproj", "{4018C709-EE68-4CCA-A838-3147C988431F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtGallary.Application", "ArtGallary.Application\ArtGallary.Application.csproj", "{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery.AdminApp", "ArtGallery.AdminApp\ArtGallery.AdminApp.csproj", "{77CED57F-2FFD-42ED-85FA-39B81D226762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7AC21A4-88B4-4180-8148-41A8862AC5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7AC21A4-88B4-4180-8148-41A8862AC5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7AC21A4-88B4-4180-8148-41A8862AC5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7AC21A4-88B4-4180-8148-41A8862AC5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50DF3C83-E071-436C-9161-9E2B3B7094C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50DF3C83-E071-436C-9161-9E2B3B7094C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50DF3C83-E071-436C-9161-9E2B3B7094C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,16 +44,29 @@ Global
 		{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4018C709-EE68-4CCA-A838-3147C988431F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4018C709-EE68-4CCA-A838-3147C988431F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4018C709-EE68-4CCA-A838-3147C988431F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4018C709-EE68-4CCA-A838-3147C988431F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CED57F-2FFD-42ED-85FA-39B81D226762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CED57F-2FFD-42ED-85FA-39B81D226762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CED57F-2FFD-42ED-85FA-39B81D226762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CED57F-2FFD-42ED-85FA-39B81D226762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{870EF182-AA37-4CFF-BF60-DD7DAB34D2A3} = {C10AA711-8C36-4083-B585-36E22A658859}
-		{E7AC21A4-88B4-4180-8148-41A8862AC5E5} = {25D28655-AA2B-4E14-A8D1-83C2A383852C}
 		{50DF3C83-E071-436C-9161-9E2B3B7094C3} = {7228CE13-D197-45D4-AD2D-59B0C9E095E6}
 		{EE6CD47A-C9FF-4BE7-9F01-9CE268596E69} = {7228CE13-D197-45D4-AD2D-59B0C9E095E6}
 		{F28B2C0A-6DFF-4638-8A7A-AA95D56CE8B6} = {25D28655-AA2B-4E14-A8D1-83C2A383852C}
+		{4018C709-EE68-4CCA-A838-3147C988431F} = {C10AA711-8C36-4083-B585-36E22A658859}
+		{4FE8AEBA-2EDB-4163-B38D-B99A0957E15C} = {25D28655-AA2B-4E14-A8D1-83C2A383852C}
+		{77CED57F-2FFD-42ED-85FA-39B81D226762} = {7228CE13-D197-45D4-AD2D-59B0C9E095E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DB67BE2-3264-4378-83B2-E991C97E8CBF}
