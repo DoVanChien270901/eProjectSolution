@@ -17,7 +17,7 @@ namespace ArtGallery.Data.Configurations
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).UseIdentityColumn();
             builder.Property(c => c.Title).HasMaxLength(50).IsRequired();
-            builder.Property(c => c.Description).HasMaxLength(150);
+            builder.Property(c => c.Description).HasColumnType("text");
             builder.Property(c => c.Price).HasColumnType("decimal(15,2)");
         }
     }

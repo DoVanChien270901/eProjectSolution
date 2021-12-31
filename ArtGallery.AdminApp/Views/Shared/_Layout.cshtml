@@ -54,21 +54,6 @@
                                 <li class="submenu-item ">
                                     @Html.ActionLink("Category List", "Index", "CategoryManager")
                                 </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-input-group.html">Input Group</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-select.html">Select</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-radio.html">Radio</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-checkbox.html">Checkbox</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="form-element-textarea.html">Textarea</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -77,11 +62,11 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-pentagon-fill"></i>
-                                <span>Widgets</span>
+                                <span>User Manager</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="ui-widgets-chatbox.html">Chatbox</a>
+                                    @Html.ActionLink("User List", "Index", "UserManager")
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="ui-widgets-pricing.html">Pricing</a>

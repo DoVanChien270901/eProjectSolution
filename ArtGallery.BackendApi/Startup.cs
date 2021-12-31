@@ -33,6 +33,7 @@ namespace ArtGallery.BackendApi
             services.AddDbContext<ArtGalleryDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("ArtGallaryShop")));
             //DI
             services.AddTransient<ICategoryServices, CategoryServicesImp>();
+            services.AddTransient<IUserServices, UserServicesImp>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
