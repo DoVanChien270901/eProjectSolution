@@ -1,5 +1,5 @@
+using ArtGallery.Application.Common;
 using ArtGallery.ViewModel.System.Users;
-using ArtGallery.WebApp.Functions.Users;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -34,8 +34,12 @@ namespace ArtGallery.WebApp
                     op.AccessDeniedPath = "";
                 });
             //configuration fluent validator
-            services.AddSingleton<IUserService,UserService>();
-            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+            services.AddSingleton<ITokenService, TokenService>();
+            services.AddMvc()
+                .AddFluentValidation(fv => {
+                    fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>();
+                    fv.RegisterValidatorsFromAssemblyContaining<RegisterRequestValidator>();
+                    });
             //
         }
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ArtGallery.Data.EF
 {
-    public class ArtGalleryDbContext : IdentityDbContext
+    public class ArtGalleryDbContext : DbContext
     {
         public ArtGalleryDbContext( DbContextOptions options) : base(options)
         {
@@ -18,7 +18,7 @@ namespace ArtGallery.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            base.OnModelCreating(modelbuilder);
+            //base.OnModelCreating(modelbuilder);
             //configure using Fluent API
             modelbuilder.ApplyConfiguration(new AccountConfiguration());
             modelbuilder.ApplyConfiguration(new AmountInAuctionConfiguration());

@@ -10,16 +10,16 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtGallery.WebApp.Functions.Users
+namespace ArtGallery.Application.Common
 {
-    public class UserService : IUserService
+    public class TokenService : ITokenService
     {
         private readonly IConfiguration _config;
-        public UserService(IConfiguration config)
+        public TokenService(IConfiguration config)
         {
             _config = config;
         }
-        public ClaimsPrincipal ValtdateToken(string jwtToken)
+        public ClaimsPrincipal ValidateToken(string jwtToken)
         {
             IdentityModelEventSource.ShowPII = true;
             SecurityToken validatedToken;

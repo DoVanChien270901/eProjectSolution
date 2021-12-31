@@ -8,6 +8,6 @@ namespace ArtGallery.Data.Constants
 {
     public class SystemContants
     {
-        public const string MainConnectionConString = "ArtGalleryShop";
+        public const string MainConnectionConString = "";
     }
 }

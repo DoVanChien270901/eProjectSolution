@@ -19,7 +19,7 @@
                         <div class="box-category">
                             <ul class="menu">
                                 <li><a>Login</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a asp-action="Register" asp-controller="Users">Register</a></li>
                                 <li><a>Forgotten Password</a></li>
                                 <li><a>My Account</a></li>
                                 <li><a>Address Books</a></li>
@@ -35,9 +35,7 @@
                         </div>
                     </div>
                 </div>
-
             </aside>
-            <!--end sidebar-->
             <!--main content-->
             <div id="content" class="col-sm-9">
                 <ul class="breadcrumb">
@@ -71,12 +69,12 @@
                                 <span class="text-danger">@Html.ValidationMessage("loginMessage")</span>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <label asp-for="Name" class="control-label">User Name</label>
+                                    <label class="control-label">User Name</label>
                                     <input asp-for="Name" class="form-control" placeholder="UserName">
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Password" class="control-label">Password</label>
+                                    <label class="control-label">Password</label>
                                     <input asp-for="Password" class="form-control" placeholder="Password">
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>

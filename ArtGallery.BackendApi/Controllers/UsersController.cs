@@ -1,5 +1,6 @@
 ﻿using ArtGallery.Application.System.Users;
 using ArtGallery.Data.Constants;
+using ArtGallery.Data.Entities;
 using ArtGallery.ViewModel.System.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -37,11 +38,29 @@ namespace ArtGallery.BackendApi.Controllers
                 Data = resultToken
             };
         }
-        [Authorize]
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromForm] LoginRequest request)
+        [HttpGet("register")]
+        public async Task<ResponseApi> Register(RegisterRequest request)
         {
-            return Ok();
+            var resultToken = await _userService.Register(request);
+            if (string.IsNullOrEmpty(resultToken))
+            {
+                return new ResponseApi
+                {
+                    Success = false,
+                    Message = "Register Fail!!!"
+                };
+            }
+            return new ResponseApi
+            {
+                Message = "Login success",
+                Success = true,
+                Data = resultToken
+            };
+        }
+        [HttpGet("profile/{userId}")]
+        public async Task<ProfileUser> Profile(string userId)
+        {
+            return await _userService.GetProfile(userId);
         }
     }
 }

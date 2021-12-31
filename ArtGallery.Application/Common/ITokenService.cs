@@ -4,10 +4,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ArtGallery.WebApp.Functions.Users
+namespace ArtGallery.Application.Common
 {
-    public interface IUserService
+    public interface ITokenService
     {
-        public ClaimsPrincipal ValtdateToken(string jwtToken);
+        public ClaimsPrincipal ValidateToken(string jwtToken);
     }
 }
