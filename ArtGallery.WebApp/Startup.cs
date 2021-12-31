@@ -1,3 +1,7 @@
+using ArtGallery.Application.Common;
+using ArtGallery.ViewModel.System.Users;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +27,20 @@ namespace ArtGallery.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(op => {
+                    op.LoginPath = "/Users/Login";
+                    op.AccessDeniedPath = "";
+                });
+            //configuration fluent validator
+            services.AddSingleton<ITokenService, TokenService>();
+            services.AddMvc()
+                .AddFluentValidation(fv => {
+                    fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>();
+                    fv.RegisterValidatorsFromAssemblyContaining<RegisterRequestValidator>();
+                    });
+            //
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +56,8 @@ namespace ArtGallery.WebApp
             }
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -46,7 +66,7 @@ namespace ArtGallery.WebApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Home}/{id?}");
             });
         }
     }

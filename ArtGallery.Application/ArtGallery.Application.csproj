@@ -6,7 +6,12 @@
 
   <ItemGroup>
     <Folder Include="Catalog\" />
-    <Folder Include="System\Users\" />
+    <Folder Include="System\Admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGallery.Data\ArtGallery.Data.csproj" />
+    <ProjectReference Include="..\ArtGallery.ViewModel\ArtGallery.ViewModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

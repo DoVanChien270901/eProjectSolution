@@ -12,7 +12,7 @@ namespace ArtGallery.Data.Entities
         public string Content { get; set; }
         public string Status { get; set; }
         public DateTime CreateDate { get; set; }
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string AccountId { get; set; }
+        public Account Account { get; set; }
     }
 }
