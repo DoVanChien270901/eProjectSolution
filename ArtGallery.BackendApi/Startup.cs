@@ -14,7 +14,7 @@ using ArtGallery.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ArtGallery.Data.Entities;
-using ArtGallary.Application.System.Admin;
+using ArtGallery.Application.System.Admin;
 
 namespace ArtGallery.BackendApi
 {

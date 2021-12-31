@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtGallary.Application.System.Admin
+namespace ArtGallery.Application.System.Admin
 {
     public interface IUserServices
     {
