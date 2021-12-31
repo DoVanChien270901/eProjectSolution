@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace ArtGallery.Data.Configurations
 {
-    public class AdminConfiguration : IEntityTypeConfiguration<Admin>
+    public class AccountConfiguration : IEntityTypeConfiguration<Account>
     {
-        public void Configure(EntityTypeBuilder<Admin> builder)
+        public void Configure(EntityTypeBuilder<Account> builder)
         {
-            builder.ToTable("Admins");
+            builder.ToTable("Accounts");
             builder.HasKey(c => c.Name);
             builder.Property(c => c.Name).HasMaxLength(50);
             builder.Property(c => c.Password).HasMaxLength(50).IsRequired();
-            builder.HasOne(c => c.Role).WithMany(c => c.Admin).HasForeignKey(c => c.RoleId);
+            builder.Property(c => c.Roles).HasColumnType("varchar(6)");
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ArtGallery.Data.Configurations
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).UseIdentityColumn();
             builder.Property(c => c.Amount).HasColumnType("decimal(15,2)");
-            builder.HasOne(c => c.User).WithMany(c => c.Transactions).HasForeignKey(c => c.UserId);
+            builder.HasOne(c => c.Account).WithMany(c => c.Transactions).HasForeignKey(c => c.AccountId);
         }
     }
 }

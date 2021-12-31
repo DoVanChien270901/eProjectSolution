@@ -21,8 +21,8 @@ namespace ArtGallery.Data.Entities
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
         public DateTime DOB { get; set; }
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string AccountId { get; set; }
+        public Account Account { get; set; }
         public List<AmountAuction> AmountInAcctions { get; set; }
     }
 }

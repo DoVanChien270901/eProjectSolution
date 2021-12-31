@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ArtGallery.Data.EF
 {
-    public class ArtGalleryDbContext : IdentityDbContext
+    public class ArtGalleryDbContext : DbContext
     {
         public ArtGalleryDbContext( DbContextOptions options) : base(options)
         {
@@ -18,9 +18,9 @@ namespace ArtGallery.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            base.OnModelCreating(modelbuilder);
+            //base.OnModelCreating(modelbuilder);
             //configure using Fluent API
-            modelbuilder.ApplyConfiguration(new AdminConfiguration());
+            modelbuilder.ApplyConfiguration(new AccountConfiguration());
             modelbuilder.ApplyConfiguration(new AmountInAuctionConfiguration());
             modelbuilder.ApplyConfiguration(new AuctionConfiguration());
             modelbuilder.ApplyConfiguration(new CartConfiguration());
@@ -34,12 +34,9 @@ namespace ArtGallery.Data.EF
 
             modelbuilder.ApplyConfiguration(new ProductInCartConfiguration());
             modelbuilder.ApplyConfiguration(new ProfileUserConfiguration());
-            modelbuilder.ApplyConfiguration(new RoleConfiguration());
             modelbuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelbuilder.ApplyConfiguration(new UserConfiguration());
-
         }
-        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<AmountAuction> AmountAuctions { get; set; }
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<Cart> Carts { get; set; }
@@ -53,8 +50,6 @@ namespace ArtGallery.Data.EF
 
         public DbSet<ProductInCart> ProductInCarts { get; set; }
         public DbSet<ProfileUser> ProfileUsers { get; set; }
-        public DbSet<Role> Role { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<User> User { get; set; }
     }
 }

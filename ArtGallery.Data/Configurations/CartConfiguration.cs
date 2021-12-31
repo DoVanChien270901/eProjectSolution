@@ -16,7 +16,7 @@ namespace ArtGallery.Data.Configurations
             builder.ToTable("Carts");
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).UseIdentityColumn();
-            builder.HasOne(c => c.User).WithMany(c => c.Carts).HasForeignKey(c => c.UserId);
+            builder.HasOne(c => c.Account).WithMany(c => c.Carts).HasForeignKey(c => c.AccountId);
         }
     }
 }

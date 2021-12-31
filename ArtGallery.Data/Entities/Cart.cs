@@ -11,8 +11,8 @@ namespace ArtGallery.Data.Entities
         public int Id { get; set; }
         public int Price { get; set; }
         public DateTime CreateDate { get; set; }
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string AccountId { get; set; }
+        public Account Account { get; set; }
         public List<ProductInCart> ProductInCarts { get; set; }
     }
 }

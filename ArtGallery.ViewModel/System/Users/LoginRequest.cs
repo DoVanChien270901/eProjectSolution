@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtGallery.Data.Entities
+namespace ArtGallery.ViewModel.System.Users
 {
-    public class Admin
+    public class LoginRequest
     {
         public string Name { get; set; }
         public string Password { get; set; }
-        public int RoleId { get; set; }
-        public Role Role { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

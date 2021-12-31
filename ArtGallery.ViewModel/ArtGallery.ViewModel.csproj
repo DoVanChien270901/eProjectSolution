@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,6 +7,16 @@
   <ItemGroup>
     <Folder Include="Catalog\" />
     <Folder Include="System\Users\" />
+    <Folder Include="Catalog\Products\" />
+    <Folder Include="System\Admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGallery.Data\ArtGallery.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
